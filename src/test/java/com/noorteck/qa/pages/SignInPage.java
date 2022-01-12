@@ -6,30 +6,34 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.noorteck.qa.utils.CommonUI;
 
-public class SignInPage extends CommonUI {
+public class SignInPage extends CommonUI{
 	
-	@FindBy(css = ".btn.btn-primary")
-	WebElement signInButton1;
+	@FindBy(css = "#session_email")
+	WebElement emailIDField;
 	
-	@FindBy(id = "user_email")
-	WebElement userEmail;
-	
-	@FindBy(id = "user_password")
+	@FindBy(css = "#session_password")
 	WebElement passwordField;
-		
+	
 	@FindBy(css = ".btn.btn-primary")
 	WebElement signInButton;
-
-		public SignInPage() {
+	
+	public SignInPage() {
 		PageFactory.initElements(driver, this);
+		
 	}
-	public void enterEmail(String email) {
-		enter(userEmail, email);
+
+	public void enterEmailField(String email) {
+		enter(emailIDField, email);
+		
 	}
-		public void enterPassword(String password) {
-		enter(passwordField,password);
+	
+	public void enterPassword(String password) {
+		enter(passwordField, password);
+		
 	}
-		public void clickSignIn() {
-			click(signInButton1);
-		}
+	
+	public void clickSignIn() {
+		click(signInButton);
+		
+	}
 }
